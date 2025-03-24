@@ -71,9 +71,6 @@ export class MicroPhone {
 
   public stopRecording() {
     this.isRecoding = false;
-    if (this.record && this.chunks) {
-      const audioBlobl = new Blob(this.chunks, { type: "audio/webm" });
-    }
     if (this.mediaRecorder && this.mediaStream) {
       if (this.onStop) {
         this.onStop();
