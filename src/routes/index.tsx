@@ -31,6 +31,8 @@ function App() {
             await new Promise((res) => setTimeout(res, 2000));
             if (obj.url === "contact-us") {
               await navigate({ to: "/contact-us" });
+            } else {
+              window.open(obj.url, "_blank");
             }
           },
           { success: "Successfully Redirected" },
