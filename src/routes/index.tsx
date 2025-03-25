@@ -8,6 +8,8 @@ import { Header } from "@/components/header";
 import Features from "@/components/features-1";
 import { FAQs } from "@/components/faqs";
 import AssistantFeatures from "@/components/features-4";
+import FaviconUpdater from "@/components/dynamic-favicon";
+import { Bot } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -33,7 +35,7 @@ function App() {
       }
       try {
         await conversation.startSession({
-          agentId: "H29Tuxjso2Ztd8C4KcuD",
+          agentId: import.meta.env.VITE_AGENT_ID,
         });
         setConversationStarted(true);
         return;
@@ -46,11 +48,12 @@ function App() {
   };
   return (
     <>
+      <FaviconUpdater icon={Bot} title="Marketing Agents" />
       <Header />
       <div className="h-screen flex gap-10 flex-col justify-center items-center w-full">
         <div className="max-w-[60vw] text-center select-none">
           <h1 className="text-4xl font-bold leading-tight">
-            Deploy & Resell{" "}
+            Automate Your Marketing With{" "}
             <AuroraText className="text-4xl">
               White Label AI Call & AI Chat Assistants
             </AuroraText>{" "}
