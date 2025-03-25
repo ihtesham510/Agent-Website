@@ -7,6 +7,7 @@ import { routeTree } from "./routeTree.gen";
 
 import "./index.css";
 import reportWebVitals from "./reportWebVitals.ts";
+import { Toaster } from "sonner";
 
 document.documentElement.classList.add("dark");
 
@@ -37,6 +38,7 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
+      <Toaster />
       <RouterProvider router={router} />
     </StrictMode>,
   );
