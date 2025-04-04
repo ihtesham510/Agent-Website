@@ -73,7 +73,7 @@ function App() {
           <h1 className="text-4xl font-bold leading-tight">
             Automate Your Marketing With{" "}
             <AuroraText className="text-4xl">
-              White Label AI Call & AI Chat Assistants
+              Realiiz AI Bot & AI Chat Assistants
             </AuroraText>{" "}
             Without Any Coding Or Complex Workflows
           </h1>
