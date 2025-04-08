@@ -9,7 +9,6 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals.ts";
 import { Toaster } from "sonner";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
-import { AgentContextProvider } from "./context/agent-contex.tsx";
 
 document.documentElement.classList.add("dark");
 
