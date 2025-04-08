@@ -8,6 +8,8 @@ import { routeTree } from "./routeTree.gen";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals.ts";
 import { Toaster } from "sonner";
+import { ConvexProvider, ConvexReactClient } from "convex/react";
+import { AgentContextProvider } from "./context/agent-contex.tsx";
 
 document.documentElement.classList.add("dark");
 
@@ -36,10 +38,14 @@ if (!agentId) {
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
+  const convexURL = import.meta.env.VITE_CONVEX_URL;
+  const client = new ConvexReactClient(convexURL);
   root.render(
     <StrictMode>
       <Toaster />
-      <RouterProvider router={router} />
+      <ConvexProvider client={client}>
+        <RouterProvider router={router} />
+      </ConvexProvider>
     </StrictMode>,
   );
 }

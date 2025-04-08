@@ -12,6 +12,8 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as ContactUsImport } from './routes/contact-us'
+import { Route as CaseStudiesImport } from './routes/case-studies'
+import { Route as AppointmentsImport } from './routes/appointments'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -19,6 +21,18 @@ import { Route as IndexImport } from './routes/index'
 const ContactUsRoute = ContactUsImport.update({
   id: '/contact-us',
   path: '/contact-us',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CaseStudiesRoute = CaseStudiesImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AppointmentsRoute = AppointmentsImport.update({
+  id: '/appointments',
+  path: '/appointments',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,6 +53,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/appointments': {
+      id: '/appointments'
+      path: '/appointments'
+      fullPath: '/appointments'
+      preLoaderRoute: typeof AppointmentsImport
+      parentRoute: typeof rootRoute
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesImport
+      parentRoute: typeof rootRoute
+    }
     '/contact-us': {
       id: '/contact-us'
       path: '/contact-us'
@@ -53,36 +81,46 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact-us': typeof ContactUsRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact-us': typeof ContactUsRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact-us': typeof ContactUsRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact-us'
+  fullPaths: '/' | '/appointments' | '/case-studies' | '/contact-us'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact-us'
-  id: '__root__' | '/' | '/contact-us'
+  to: '/' | '/appointments' | '/case-studies' | '/contact-us'
+  id: '__root__' | '/' | '/appointments' | '/case-studies' | '/contact-us'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppointmentsRoute: typeof AppointmentsRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactUsRoute: typeof ContactUsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppointmentsRoute: AppointmentsRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   ContactUsRoute: ContactUsRoute,
 }
 
@@ -97,11 +135,19 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/appointments",
+        "/case-studies",
         "/contact-us"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/appointments": {
+      "filePath": "appointments.tsx"
+    },
+    "/case-studies": {
+      "filePath": "case-studies.tsx"
     },
     "/contact-us": {
       "filePath": "contact-us.tsx"

@@ -1,5 +1,4 @@
-import { useConversation } from "@11labs/react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { BotButton } from "@/components/bot-button";
 import { AuroraText } from "@/components/aura-text";
@@ -10,7 +9,7 @@ import { FAQs } from "@/components/faqs";
 import AssistantFeatures from "@/components/features-4";
 import FaviconUpdater from "@/components/dynamic-favicon";
 import { Bot } from "lucide-react";
-import { toast } from "sonner";
+import { useConversation } from "@/context/agent-contex";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -20,26 +19,7 @@ function App() {
   const [conversationStarted, setConversationStarted] =
     useState<boolean>(false);
   const [errorConversation, setErrorConversation] = useState<boolean>(false);
-  const navigate = useNavigate();
-  const conversation = useConversation({
-    agentId: import.meta.env.VITE_AGENT_ID,
-    clientTools: {
-      redirect: (obj: { url: string }) => {
-        console.log("url triggered", obj.url);
-        toast.promise(
-          async () => {
-            await new Promise((res) => setTimeout(res, 2000));
-            if (obj.url === "contact-us") {
-              await navigate({ to: "/contact-us" });
-            } else {
-              window.open(obj.url, "_blank");
-            }
-          },
-          { success: "Successfully Redirected" },
-        );
-      },
-    },
-  });
+  const conversation = useConversation();
 
   const handleConversation = async () => {
     if (conversationStarted) {
