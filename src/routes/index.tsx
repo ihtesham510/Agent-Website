@@ -61,7 +61,8 @@ function App() {
 
         <BotButton
           variant={
-            errorConversation
+            errorConversation ||
+            (!conversation.isSpeaking && conversationStarted)
               ? "destructive"
               : conversationStarted
                 ? "live"
