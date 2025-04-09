@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import { CaseStudyForm } from "@/components/case-study-form";
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const Route = createFileRoute("/case-studies")({
   component: RouteComponent,
@@ -56,11 +57,13 @@ function RouteComponent() {
               </Card>
             ))}
         </div>
-        <DialogContent>
+        <DialogContent className="min-w-[600px]">
           <DialogHeader>
             <DialogTitle>Add Case Study</DialogTitle>
           </DialogHeader>
-          <CaseStudyForm />
+          <ScrollArea className="max-h-[70vh] px-2">
+            <CaseStudyForm />
+          </ScrollArea>
         </DialogContent>
       </Dialog>
     </>
