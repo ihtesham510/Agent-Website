@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { BotButton } from "@/components/bot-button";
-import { AuroraText } from "@/components/aura-text";
 import FaviconUpdater from "@/components/dynamic-favicon";
 import { Bot } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useAgent } from "@/hooks/use-agent";
 import { Agent } from "@/components/agent";
 
 export const Route = createFileRoute("/")({
