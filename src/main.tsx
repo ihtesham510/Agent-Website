@@ -28,10 +28,6 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
-const agentId = import.meta.env.VITE_AGENT_ID;
-if (!agentId) {
-  throw new Error("Agent Id not found");
-}
 
 // Render the app
 const rootElement = document.getElementById("app");

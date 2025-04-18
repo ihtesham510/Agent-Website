@@ -4,7 +4,7 @@ import { api } from "convex/_generated/api";
 import { useMutation, useQuery } from "convex/react";
 import { toast } from "sonner";
 
-export function useAgent() {
+export function useAgent({ agentId }: { agentId: string }) {
   const navigate = useNavigate();
   const cs = useQuery(api.caseStudies.getCaseStudy, { tags: [] });
   const addAppointment = useMutation(api.appointment.bookAppointment);
@@ -13,7 +13,7 @@ export function useAgent() {
     .join("\n\n");
 
   const conversation = useConversation({
-    agentId: import.meta.env.VITE_AGENT_ID,
+    agentId,
     clientTools: {
       redirect: (obj: { url: string }) => {
         console.log("url triggered", obj.url);
