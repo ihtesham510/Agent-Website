@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BotButton } from "@/components/bot-button";
 import { AuroraText } from "@/components/aura-text";
 import { useAgent } from "@/hooks/use-agent";
 
-export function Agent({
-  agentId,
-  isTalking,
-}: {
-  agentId: string;
-  isTalking: (e: boolean) => void;
-}) {
+export function Agent({ agentId }: { agentId: string }) {
   const [conversationStarted, setConversationStarted] =
     useState<boolean>(false);
   const [errorConversation, setErrorConversation] = useState<boolean>(false);
   const conversation = useAgent({ agentId: agentId });
-
-  useEffect(() => {
-    isTalking(conversationStarted);
-  }, [conversationStarted]);
 
   const handleConversation = async () => {
     if (conversationStarted) {
