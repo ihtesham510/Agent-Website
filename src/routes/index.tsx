@@ -3,11 +3,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { BotButton } from "@/components/bot-button";
 import { AuroraText } from "@/components/aura-text";
-import Pricing from "@/components/pricing";
-import { Header } from "@/components/header";
-import Features from "@/components/features-1";
-import { FAQs } from "@/components/faqs";
-import AssistantFeatures from "@/components/features-4";
+// import Pricing from "@/components/pricing";
+// import { Header } from "@/components/header";
+// import Features from "@/components/features-1";
+// import { FAQs } from "@/components/faqs";
+// import AssistantFeatures from "@/components/features-4";
 import FaviconUpdater from "@/components/dynamic-favicon";
 import { Bot } from "lucide-react";
 
@@ -49,7 +49,7 @@ function App() {
   return (
     <>
       <FaviconUpdater icon={Bot} title="Marketing Agents" />
-      <Header />
+      {/* <Header /> */}
       <div className="h-screen flex gap-10 flex-col justify-center items-center w-full">
         <div className="max-w-[60vw] text-center select-none">
           <h1 className="text-4xl font-bold leading-tight">
@@ -72,10 +72,10 @@ function App() {
           onClick={handleConversation}
         />
       </div>
-      <AssistantFeatures />
-      <Features />
-      <Pricing />
-      <FAQs />
+      {/* <AssistantFeatures /> */}
+      {/* <Features /> */}
+      {/* <Pricing /> */}
+      {/* <FAQs /> */}
     </>
   );
 }
