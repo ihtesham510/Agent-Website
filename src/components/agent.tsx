@@ -36,11 +36,8 @@ export function Agent({ agentId }: { agentId: string }) {
     <div className="h-screen flex gap-10 flex-col justify-center items-center w-full">
       <div className="max-w-[60vw] text-center select-none">
         <h1 className="text-4xl font-bold leading-tight">
-          Automate Your Marketing With{" "}
-          <AuroraText className="text-4xl">
-            Realiiz AI Bot & AI Chat Assistants
-          </AuroraText>{" "}
-          Without Any Coding Or Complex Workflows
+          <AuroraText className="text-4xl">Realise Business's</AuroraText> AI
+          Agent Demo
         </h1>
       </div>
 

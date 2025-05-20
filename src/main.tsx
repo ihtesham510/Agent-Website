@@ -33,14 +33,14 @@ declare module "@tanstack/react-router" {
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
-  const convexURL = import.meta.env.VITE_CONVEX_URL;
-  const client = new ConvexReactClient(convexURL);
+  // const convexURL = import.meta.env.VITE_CONVEX_URL;
+  // const client = new ConvexReactClient(convexURL);
   root.render(
     <StrictMode>
       <Toaster />
-      <ConvexProvider client={client}>
-        <RouterProvider router={router} />
-      </ConvexProvider>
+      {/* <ConvexProvider client={client}> */}
+      <RouterProvider router={router} />
+      {/*   </ConvexProvider> */}
     </StrictMode>,
   );
 }
