@@ -8,7 +8,6 @@ import { routeTree } from "./routeTree.gen";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals.ts";
 import { Toaster } from "sonner";
-import { ConvexProvider, ConvexReactClient } from "convex/react";
 
 document.documentElement.classList.add("dark");
 
