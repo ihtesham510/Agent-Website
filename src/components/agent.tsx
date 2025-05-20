@@ -36,8 +36,7 @@ export function Agent({ agentId }: { agentId: string }) {
     <div className="h-screen flex gap-10 flex-col justify-center items-center w-full">
       <div className="max-w-[60vw] text-center select-none">
         <h1 className="text-4xl font-bold leading-tight">
-          <AuroraText className="text-4xl">Realise Business's</AuroraText> AI
-          Agent Demo
+          <AuroraText className="text-4xl">Realise Business's</AuroraText>{" "}
         </h1>
       </div>
 
@@ -51,6 +50,7 @@ export function Agent({ agentId }: { agentId: string }) {
         }
         onClick={handleConversation}
       />
+      <p className="font-bold text-3xl">AI Agent Demo</p>
     </div>
   );
 }
